@@ -18,32 +18,24 @@ mkdir -p bin
 mkdir -p sh
 
 
-# https://insinuator.net/2018/02/creating-static-binaries-for-nmap-socat-and-other-tools/
-
-
-## nmap
-#echo "nmap"
-# https://github.com/opsec-infosec/nmap-static-binaries/tree/master
-
-## nc
-#echo "nc"
-#wget --quiet https://github.com/int0x33/nc.exe/raw/master/nc64.exe -P nc -O bin/nc64.exe
-#wget --quiet https://github.com/int0x33/nc.exe/raw/master/nc.exe -P nc -O bin/nc.exe 
-#
-
-# chisel
 echo "chisel"
-__get_github_release jpillora/chisel 'linux_(386|amd64)'
-mv chisel* bin
+#__get_github_release jpillora/chisel 'linux_(386|amd64)'
+eget jpillora/chisel -s linux/amd64 --download-only --upgrade-only --to ./bin
+eget jpillora/chisel -s linux/386 --download-only  --upgrade-only --to ./bin
 
-echo "nmap"
-__get_github_release opsec-infosec/nmap-static-binaries 'nmap-x86_64.tar.gz' 
-mv nmap* bin
 
-echo "pspy"
+#echo "nmap"
+#__get_github_release opsec-infosec/nmap-static-binaries 'nmap-x86_64.tar.gz' 
+eget opsec-infosec/nmap-static-binaries -a nmap-x86_64 --download-only  --to ./bin
+
+
+#echo "pspy"
 __get_github_release DominicBreuker/pspy "pspy" 
 mv pspy* bin
+#eget  DominicBreuker/pspy  --download-only --upgrade-only --to ./bin
 
-echo "lineas"
-__get_github_release peass-ng/PEASS-ng "(linpeas_linux_amd64|linpeas_linux_386|linpeas.sh)"
-mv linpeas* bin
+#echo "lineas"
+#__get_github_release peass-ng/PEASS-ng "(linpeas_linux_amd64|linpeas_linux_386|linpeas.sh)"
+eget  peass-ng/PEASS-ng -a linpeas.sh --download-only --upgrade-only --to ./sh
+eget  peass-ng/PEASS-ng -s linux/amd64 --download-only  --upgrade-only --to ./bin
+eget  peass-ng/PEASS-ng -s linux/386 --download-only --upgrade-only --to ./bin
