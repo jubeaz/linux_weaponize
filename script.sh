@@ -2,7 +2,6 @@
 set -o errexit
 set -o nounset
 set -o pipefail
-
 function __get_github_release(){
     repo=$1
     filter=$2
@@ -50,3 +49,8 @@ make --file Makefile-tmp linux_impacket
 cd ..
 mv ./OffensivePythonPipeline/binaries_3.8.10/* bin
 echo "End building static pythons (3.8.10) (impacket, responder)"
+
+
+
+echo 'Ligolo-ng'
+eget nicocha30/ligolo-ng -s linux/amd64   --upgrade-only --to ./bin
