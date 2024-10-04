@@ -54,3 +54,7 @@ echo "End building static pythons (3.8.10) (impacket, responder)"
 
 echo 'Ligolo-ng'
 eget nicocha30/ligolo-ng -s linux/amd64   --upgrade-only --to ./bin
+
+echo 'socat'
+eget ernw/static-toolbox -a  socat-1.7.4.4-x86_64   --upgrade-only --to ./bin
+mv  bin/static-toolbox bin/socat
