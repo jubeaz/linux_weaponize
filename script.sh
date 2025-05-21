@@ -2,6 +2,9 @@
 set -o errexit
 set -o nounset
 set -o pipefail
+
+
+
 function __get_github_release(){
     repo=$1
     filter=$2
@@ -13,6 +16,14 @@ function __get_github_release(){
         wget --quiet  --no-check-certificate $i -O $basedir/$(basename $i)
     done
 }
+
+if [[ -n "$GITHUB_TOKEN_PATH" && -f "$GITHUB_TOKEN_PATH" ]]; then
+    export GITHUB_TOKEN=$(cat $GITHUB_TOKEN_PATH)
+else 
+    echo "Error: GITHUB_TOKEN_PATH is not set or the file does not exist." >&2
+    exit 1
+fi
+
 mkdir -p bin
 mkdir -p sh
 
@@ -58,3 +69,6 @@ eget nicocha30/ligolo-ng -s linux/amd64   --upgrade-only --to ./bin
 echo 'socat'
 eget ernw/static-toolbox -a  socat-1.7.4.4-x86_64   --upgrade-only --to ./bin
 mv  bin/static-toolbox bin/socat
+
+echo 'nc'
+wget -O bin/nc https://github.com/H74N/netcat-binaries/raw/refs/heads/master/nc
