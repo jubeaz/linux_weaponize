@@ -65,8 +65,8 @@ eget RedTeamPentesting/pretender -a Linux_x86_64 --download-only --upgrade-only 
 
 echo 'Ligolo-ng'
 mkdir -p ./bin/ligolo-ng
-eget nicocha30/ligolo-ng -s linux/amd64 --asset=agent --asset=agent --upgrade-only --to ./bin/ligolo-ng
-eget nicocha30/ligolo-ng -s linux/amd64 --asset=proxy --asset=proxy --upgrade-only --to ./bin/ligolo-ng
+eget nicocha30/ligolo-ng -s linux/amd64 --asset=agent --script=agent --upgrade-only --to ./bin/ligolo-ng
+eget nicocha30/ligolo-ng -s linux/amd64 --asset=proxy --script=proxy --upgrade-only --to ./bin/ligolo-ng
 
 echo 'socat'
 eget ernw/static-toolbox -a  socat-1.7.4.4-x86_64   --upgrade-only --to ./bin
