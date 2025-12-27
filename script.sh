@@ -74,3 +74,6 @@ mv  bin/static-toolbox bin/socat
 
 echo 'nc'
 wget -O bin/nc https://github.com/H74N/netcat-binaries/raw/refs/heads/master/nc
+
+echo 'linux-exploit-suggester'
+wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O sh/les.sh
